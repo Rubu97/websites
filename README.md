@@ -9,7 +9,7 @@ Kanchan Nagar, Sualkuchi, Assam 781103.
 
 - **3D animated hero** — floating books, graduation cap, knowledge globe and orbit rings built with React Three Fiber
 - **Scroll animations everywhere** — section reveals, stat counters, tilt cards, staggered grids (Framer Motion)
-- **Bilingual identity** — English + Assamese (নো সঁজাৰা / Noto Sans Bengali typography)
+- **Bilingual identity** — English + Assamese, set in Anek Bangla (Ek Type, OFL) — a proper Assamese variable font with full ৰ ৱ glyph support, self-hosted in `frontend/public/fonts/`
 - **Gallery with lightbox** — school photos with a link out to the official Google Maps photo album
 - **Admission enquiry form** — validated by a small Express API, stored in `backend/data/`
 - **Google Maps embed + directions** using the school's real coordinates (26.1677234, 91.5641811)
@@ -25,7 +25,7 @@ Hero · Stats · About · Academics · Campus & Facilities · Gallery · Notice 
 | --------- | -------------------------------------------------------------- |
 | Frontend  | React 18, TypeScript, Vite, Tailwind CSS v4, Framer Motion, Three.js |
 | Backend   | Node.js, Express (enquiries API)                               |
-| Design    | Navy + gold "heritage" theme, Sora / Manrope / Noto Sans Bengali |
+| Design    | Navy + gold "heritage" theme, Sora / Manrope + **Anek Bangla** (self-hosted Assamese variable font with ৰ ৱ coverage) |
 
 ## Run locally
 

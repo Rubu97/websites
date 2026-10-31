@@ -62,7 +62,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 font-bengali text-lg font-semibold text-gold-200 sm:text-xl"
+            className="mt-4 font-assamese text-lg font-semibold text-gold-200 sm:text-xl"
           >
             গণেশ দাস হাই স্কুল · কাঞ্চন নগর, শুয়ালকুচি
           </motion.p>

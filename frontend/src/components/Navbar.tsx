@@ -58,7 +58,7 @@ export default function Navbar() {
                 Ganesh Das High School
               </span>
               <span
-                className={`block font-bengali text-[11px] font-semibold tracking-wide ${
+                className={`block font-assamese text-[11px] font-semibold tracking-wide ${
                   scrolled ? 'text-gold-700' : 'text-gold-200'
                 }`}
               >

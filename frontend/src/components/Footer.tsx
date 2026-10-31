@@ -35,7 +35,7 @@ export default function Footer() {
                 <span className="block font-display text-lg font-extrabold text-white">
                   {school.name}
                 </span>
-                <span className="block font-bengali text-xs font-semibold text-gold-300">
+                <span className="block font-assamese text-xs font-semibold text-gold-300">
                   {school.localName}
                 </span>
               </span>
