@@ -1,22 +1,25 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, CalendarCheck } from 'lucide-react';
-import { clinic } from '../data';
+import { Menu, X, ClipboardPen, MapPin } from 'lucide-react';
+import { school, mapLinks } from '../data';
 
 const links = [
-  { href: '#home', label: 'Home' },
-  { href: '#services', label: 'Services' },
-  { href: '#why', label: 'Why Us' },
-  { href: '#reviews', label: 'Reviews' },
+  { href: '#about', label: 'About' },
+  { href: '#academics', label: 'Academics' },
+  { href: '#campus', label: 'Campus' },
+  { href: '#gallery', label: 'Gallery' },
+  { href: '#notices', label: 'Notices' },
   { href: '#contact', label: 'Contact' },
 ];
 
-function ToothMark() {
+function Crest({ className = 'h-11 w-11' }: { className?: string }) {
   return (
-    <span className="relative grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-aqua-400 to-ink-600 shadow-[0_10px_30px_-10px_rgba(34,211,238,0.8)]">
-      <svg viewBox="0 0 64 64" className="h-6 w-6 fill-white">
-        <path d="M32 6c-6 0-9 2.5-12.5 2.5C15 8.5 10 11 10 20c0 6 1.8 10 3.4 15.4C14.7 40 16 46 18.4 52c1.6 4 5.6 5 7.6 1 1.6-3.2 2-8 6-8s4.4 4.8 6 8c2 4 6 3 7.6-1C48 46 49.3 40 50.6 35.4 52.2 30 54 26 54 20c0-9-5-11.5-9.5-11.5C41 8.5 38 6 32 6z" />
-      </svg>
+    <span className="relative grid place-items-center">
+      <img
+        src="/crest.svg"
+        alt={`${school.name} crest`}
+        className={`${className} drop-shadow-[0_8px_20px_rgba(245,158,11,0.35)]`}
+      />
     </span>
   );
 }
@@ -45,21 +48,21 @@ export default function Navbar() {
           }`}
         >
           <a href="#home" className="flex items-center gap-3">
-            <ToothMark />
+            <Crest />
             <span className="leading-tight">
               <span
                 className={`block font-display text-base font-extrabold ${
                   scrolled ? 'text-ink-950' : 'text-white'
                 }`}
               >
-                Smile Care
+                Ganesh Das High School
               </span>
               <span
-                className={`block text-[11px] font-semibold uppercase tracking-[0.18em] ${
-                  scrolled ? 'text-aqua-600' : 'text-aqua-200'
+                className={`block font-bengali text-[11px] font-semibold tracking-wide ${
+                  scrolled ? 'text-gold-700' : 'text-gold-200'
                 }`}
               >
-                Dental Clinic · Sualkuchi
+                গণেশ দাস হাই স্কুল · শুয়ালকুচি
               </span>
             </span>
           </a>
@@ -71,7 +74,7 @@ export default function Navbar() {
                 href={l.href}
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                   scrolled
-                    ? 'text-ink-700 hover:bg-aqua-50 hover:text-aqua-700'
+                    ? 'text-ink-700 hover:bg-gold-50 hover:text-gold-700'
                     : 'text-ink-100/90 hover:bg-white/10 hover:text-white'
                 }`}
               >
@@ -82,17 +85,19 @@ export default function Navbar() {
 
           <div className="hidden items-center gap-3 md:flex">
             <a
-              href={clinic.phoneHref}
+              href={mapLinks.directions}
+              target="_blank"
+              rel="noreferrer"
               className={`flex items-center gap-2 text-sm font-semibold ${
                 scrolled ? 'text-ink-700' : 'text-ink-100'
               }`}
             >
-              <Phone className="h-4 w-4 text-aqua-500" />
-              <span className="hidden xl:inline">{clinic.phoneDisplay}</span>
+              <MapPin className="h-4 w-4 text-gold-500" />
+              <span className="hidden xl:inline">Kanchan Nagar, Sualkuchi</span>
             </a>
-            <a href="#booking" className="btn-primary btn-sm">
-              <CalendarCheck className="h-4 w-4" />
-              Book Appointment
+            <a href="#admissions" className="btn-primary btn-sm">
+              <ClipboardPen className="h-4 w-4" />
+              Admission Enquiry
             </a>
           </div>
 
@@ -120,18 +125,18 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-ink-800 hover:bg-aqua-50"
+                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-ink-800 hover:bg-gold-50"
                 >
                   {l.label}
                 </a>
               ))}
               <a
-                href="#booking"
+                href="#admissions"
                 onClick={() => setOpen(false)}
                 className="btn-primary mt-2 w-full"
               >
-                <CalendarCheck className="h-4 w-4" />
-                Book Appointment
+                <ClipboardPen className="h-4 w-4" />
+                Admission Enquiry
               </a>
             </motion.nav>
           )}

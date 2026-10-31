@@ -88,11 +88,11 @@ export function SectionHeading({
       <span
         className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] ${
           light
-            ? 'bg-white/10 text-aqua-200 ring-1 ring-white/15'
-            : 'bg-aqua-50 text-aqua-700 ring-1 ring-aqua-200'
+            ? 'bg-white/10 text-gold-200 ring-1 ring-white/15'
+            : 'bg-gold-50 text-gold-700 ring-1 ring-gold-200'
         }`}
       >
-        <span className="h-1.5 w-1.5 rounded-full bg-aqua-400" />
+        <span className="h-1.5 w-1.5 rounded-full bg-gold-400" />
         {eyebrow}
       </span>
       <h2

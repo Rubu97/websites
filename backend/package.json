@@ -1,9 +1,9 @@
 {
-  "name": "smile-care-dental-backend",
+  "name": "ganesh-das-high-school-backend",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Backend API for Smile Care Dental Clinic Sualkuchi appointment booking",
+  "description": "Backend API for Ganesh Das High School admission enquiries",
   "main": "src/server.js",
   "scripts": {
     "dev": "node --watch src/server.js",

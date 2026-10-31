@@ -1,8 +1,8 @@
 {
-  "name": "smile-care-dental-clinic",
+  "name": "ganesh-das-high-school",
   "private": true,
   "version": "1.0.0",
-  "description": "3D animated website with online appointment booking for Smile Care Dental Clinic, Sualkuchi",
+  "description": "Modern animated website for Ganesh Das High School, Kanchan Nagar, Sualkuchi, Assam",
   "scripts": {
     "install:all": "npm --prefix backend install && npm --prefix frontend install",
     "dev": "bash start.sh",

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="0.5" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#123a5c"/>
+      <stop offset="1" stop-color="#07192a"/>
+    </linearGradient>
+  </defs>
+  <!-- shield -->
+  <path d="M48 4 L86 16 V46 C86 68 70 84 48 93 C26 84 10 68 10 46 V16 Z"
+        fill="url(#navy)" stroke="url(#gold)" stroke-width="4" stroke-linejoin="round"/>
+  <!-- inner hairline -->
+  <path d="M48 12 L78 21.5 V46 C78 63 66 76 48 84 C30 76 18 63 18 46 V21.5 Z"
+        fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.55"/>
+  <!-- rising sun / rays -->
+  <g stroke="url(#gold)" stroke-width="2.6" stroke-linecap="round">
+    <line x1="48" y1="17" x2="48" y2="23"/>
+    <line x1="34" y1="21" x2="37" y2="26"/>
+    <line x1="62" y1="21" x2="59" y2="26"/>
+    <line x1="25" y1="30" x2="29.5" y2="33.5"/>
+    <line x1="71" y1="30" x2="66.5" y2="33.5"/>
+  </g>
+  <circle cx="48" cy="33" r="6.5" fill="url(#gold)"/>
+  <!-- open book -->
+  <g>
+    <path d="M48 47 C42 43 33 42 26 44 L26 64 C33 62 42 63 48 67 Z"
+          fill="#f8fafc" stroke="url(#gold)" stroke-width="2.4" stroke-linejoin="round"/>
+    <path d="M48 47 C54 43 63 42 70 44 L70 64 C63 62 54 63 48 67 Z"
+          fill="#eef2f7" stroke="url(#gold)" stroke-width="2.4" stroke-linejoin="round"/>
+    <path d="M48 47 L48 67" stroke="#b45309" stroke-width="2" opacity="0.8"/>
+    <path d="M31 50 L43 52 M31 56 L43 58 M53 52 L65 50 M53 58 L65 56"
+          stroke="#94a3b8" stroke-width="1.6" stroke-linecap="round"/>
+  </g>
+  <!-- banner -->
+  <path d="M24 72 H72 L66 82 H30 Z" fill="url(#gold)"/>
+  <text x="48" y="79.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="8.5" font-weight="700" fill="#07192a" letter-spacing="1.5">1954</text>
+</svg>

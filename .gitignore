@@ -3,5 +3,5 @@ dist/
 .env
 .env.local
 *.log
-backend/data/appointments.json
+backend/data/*.json
 .DS_Store
