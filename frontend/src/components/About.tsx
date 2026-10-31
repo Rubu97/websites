@@ -1,6 +1,6 @@
 import { BadgeCheck, Quote } from 'lucide-react';
 import { Reveal, SectionHeading, Tilt } from './Motion';
-import { school, aboutPoints } from '../data';
+import { school, aboutPoints, coverPhoto, streetViewPhoto } from '../data';
 
 export default function About() {
   return (
@@ -24,10 +24,22 @@ export default function About() {
           <Reveal className="relative">
             <Tilt className="relative overflow-hidden rounded-3xl shadow-soft">
               <img
-                src="/gallery/building.jpg"
-                alt="Ganesh Das High School building and courtyard"
+                src={coverPhoto}
+                alt="Ganesh Das High School, Kanchan Nagar, Sualkuchi — photo from Google Maps"
                 className="h-[26rem] w-full object-cover sm:h-[30rem]"
                 loading="lazy"
+                onError={(e) => {
+                  const el = e.currentTarget;
+                  if (el.dataset.fallback !== 'street') {
+                    el.dataset.fallback = 'street';
+                    el.src = streetViewPhoto;
+                  } else {
+                    el.dataset.fallback = 'crest';
+                    el.src = '/crest.svg';
+                    el.className =
+                      'h-[26rem] w-full bg-ink-950 object-contain p-16 sm:h-[30rem]';
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950/75 via-ink-950/10 to-transparent" />
 

@@ -47,8 +47,15 @@ All school content lives in [`frontend/src/data.ts`](frontend/src/data.ts):
 
 ### Photos
 
-Real photographs, Street View and community uploads live on the school's Google Maps listing:
-https://maps.app.goo.gl/ubkQUEnV4XEuiLME9 — linked prominently from the Gallery and Footer sections.
+The site uses **real photographs served live from the school's Google Maps listing** (uploaded by
+Local Guide "Nibed D" and other visitors) — they load directly from Google's CDN in the visitor's
+browser, so they always stay in sync with the listing. Street View of the frontage is included, and
+every tile is credited and links back to Maps. The full album (45 photos):
+https://maps.app.goo.gl/ubkQUEnV4XEuiLME9
+
+Photo URLs live in `frontend/src/data.ts` (`coverPhoto`, `streetViewPhoto`, `gallery`). If you later
+have original photo files, drop them in `frontend/public/gallery/` and point the gallery entries at
+those paths instead.
 
 ## API
 

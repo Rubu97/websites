@@ -33,6 +33,20 @@ export const mapLinks = {
   embed: 'https://www.google.com/maps?q=26.1677234,91.5641811&z=17&hl=en&output=embed',
 };
 
+/*
+ * Real photographs served live from the school's Google Maps listing
+ * (uploaded by Local Guide "Nibed D" and other visitors). The visitor's
+ * browser loads them directly from Google's CDN, so they always match
+ * the listing. Every photo is credited back to its Maps page.
+ */
+export const coverPhoto =
+  'https://lh3.googleusercontent.com/grass-cs/AABkmLeCg-QCTYTWTRZlUKf_hloXBd36Jl1SIj0UIRwaa9zli8vSHc9LJiLzxCToDvjYeuFQX1C1xUhthfHs8OnTfeA8tn19qPSknK6DY2-z8acrCmbNnwn5mgbEemojjsIWhs-0gLQ1=w1600-h1200-k-no';
+
+export const streetViewPhoto =
+  'https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=JPRMpsKtD54I8Bi3mJkGdQ&cb_client=search.gws-prod.grass&w=1280&h=960&yaw=350.58517&pitch=0&thumbfov=100';
+
+const gpsPhoto = (id: string) => `https://lh3.googleusercontent.com/gps-cs/${id}=w1200-h1200-p-k-no`;
+
 export const aboutPoints = [
   {
     title: 'Rooted in heritage',
@@ -91,16 +105,66 @@ export type GalleryItem = {
   src: string;
   title: string;
   tag: string;
+  credit?: string;
   span?: string;
 };
 
 export const gallery: GalleryItem[] = [
-  { src: '/gallery/building.jpg', title: 'School building & courtyard', tag: 'Campus', span: 'md:col-span-2 md:row-span-2' },
-  { src: '/gallery/classroom.jpg', title: 'A typical class in session', tag: 'Academics' },
-  { src: '/gallery/library.jpg', title: 'Library & reading room', tag: 'Library' },
-  { src: '/gallery/assembly.jpg', title: 'Morning assembly', tag: 'Daily life' },
-  { src: '/gallery/lab.jpg', title: 'Computer-aided learning lab', tag: 'Labs' },
-  { src: '/gallery/culture.jpg', title: 'Bihu & cultural activities', tag: 'Culture' },
+  {
+    src: coverPhoto,
+    title: 'Ganesh Das High School, Kanchan Nagar',
+    tag: 'Cover photo',
+    credit: 'Nibed D · Google Maps',
+    span: 'md:col-span-2 md:row-span-2',
+  },
+  {
+    src: gpsPhoto('AAjk-CMOA-Cv0zD3o5NTtT-AE5tgvANHmuT_yM6OObvxQWA1Wr1Bjl0UEa9zxU25d1Xe09z52wYe5OOzAW5naSTkP6VIWWDaQCtYUZcoTAQGTXdQblzR7hdlkinzrfokzODdWzf0_jZk'),
+    title: 'Ganesh Das High School',
+    tag: 'Photo',
+    credit: 'Nibed D · Google Maps',
+  },
+  {
+    src: gpsPhoto('AAjk-COgQYIw4jaKXOtd6ygaDW6hwsa2a3Dd-yi2V9N1zRzM1EjyLJpV7isyJ_h5lcyBvuaWlJ1zDXYO89MAJdysJJ9l4Y5FIeeRZnUtPnNXCce7AMATJJH3fj283CqlB8prfcVsuieZ'),
+    title: 'Ganesh Das High School',
+    tag: 'Photo',
+    credit: 'Nibed D · Google Maps',
+  },
+  {
+    src: gpsPhoto('AAjk-CNsoEIuqKi_2XkKrAHeLCE659PYA78qIz8KbgCP-c4HzAfHZrXWDt33Nk6c22StO78_Z7qKKv2mchlOxJW_YZ-tor6bnDJMYb64M6pvI_Ai7YQSVmIh_dyWQYJgsu8ZEDc9RVYz'),
+    title: 'Ganesh Das High School',
+    tag: 'Photo',
+    credit: 'Nibed D · Google Maps',
+  },
+  {
+    src: gpsPhoto('AAjk-CPjnbr_HUJMpyLTgGR_qpYxlMsSojToSPpYzQhbaNYdbRbbxdGwwIVn9CAa7cFEePPscBMj0D8r8c9w4MlTVYFo28vi86mcMMK68rI9YZ7eZOF8ifEDeVpvY7SRv62dZsTccE-a'),
+    title: 'Ganesh Das High School',
+    tag: 'Photo',
+    credit: 'Nibed D · Google Maps',
+  },
+  {
+    src: gpsPhoto('AAjk-CNA_9LgwUmFNmbZ2cBDgucJoBUfTI7oTD04hm8Y8VRhR8wooKWDommOWNIHWs-4QcIS0JhJyPkaedrqXlGppg4j5xd1BY7jmbpFx_c4PuW4jFoWUcaHrtbtnHOyhY24Upk7_YfvOQ'),
+    title: 'Ganesh Das High School',
+    tag: 'Photo',
+    credit: 'Nibed D · Google Maps',
+  },
+  {
+    src: gpsPhoto('AAjk-CMURCf7BoixLfALeQFyNXFtEx80pjuztLJWY6ueDu9FUqiQc5lMUo_m-3Iu3Vlp-HaGfDzKpSQf-fXnEpJ5wxAJVS-7-GHM7D3tDFeigvU50w_brzMM3pq6cuaOXAvvu9Tj6YfSBQ'),
+    title: 'Ganesh Das High School',
+    tag: 'Photo',
+    credit: 'Nibed D · Google Maps',
+  },
+  {
+    src: gpsPhoto('AAjk-CM9Zy6-EAnq1nSjki-Rrypv13YMpvOMy2f3fKWGAeAr14wxZapqGWkSRE8JY3SMC8Fuz3xVkiNQBm2scgVEzxyxnJSTOPefiANGEjhM7qg0VFlrYt-uY1yUrZjyUtTUHfQ7V6nx'),
+    title: 'Ganesh Das High School',
+    tag: 'Photo',
+    credit: 'Nibed D · Google Maps',
+  },
+  {
+    src: streetViewPhoto,
+    title: 'School frontage',
+    tag: 'Street View',
+    credit: 'Google Street View',
+  },
 ];
 
 /* Sample announcements — replace these with real school notices in this file. */

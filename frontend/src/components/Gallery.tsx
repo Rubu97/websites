@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Images, ExternalLink, Expand } from 'lucide-react';
+import { X, Images, ExternalLink, Expand, MapPin, Camera } from 'lucide-react';
 import { Reveal, SectionHeading } from './Motion';
 import { gallery, mapLinks } from '../data';
 
 export default function Gallery() {
   const [active, setActive] = useState<number | null>(null);
+  const [broken, setBroken] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -22,6 +23,8 @@ export default function Gallery() {
     };
   }, [active]);
 
+  const markBroken = (index: number) => setBroken((b) => ({ ...b, [index]: true }));
+
   return (
     <section id="gallery" className="relative bg-ink-950 pb-24 pt-4 sm:pb-28">
       <div className="container-x relative">
@@ -32,10 +35,10 @@ export default function Gallery() {
             eyebrow="Campus life"
             title={
               <>
-                Moments from our <span className="text-gradient">school days</span>.
+                Real photos from our <span className="text-gradient">Google Maps</span> listing.
               </>
             }
-            subtitle="Classrooms, assemblies, festivals and the everyday rhythm of Ganesh Das High School."
+            subtitle="Every photo below is loaded live from the school's official Google Maps page — uploaded by Local Guides and visitors, including the cover photo by Nibed D."
           />
           <Reveal delay={0.1}>
             <a
@@ -65,12 +68,26 @@ export default function Gallery() {
                 item.span ?? ''
               }`}
             >
-              <img
-                src={item.src}
-                alt={item.title}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.07]"
-              />
+              {broken[i] ? (
+                <span className="flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-br from-ink-800 via-ink-900 to-ink-950 text-center">
+                  <Camera className="h-8 w-8 text-gold-400" />
+                  <span className="px-4 text-xs font-semibold text-ink-200/80">
+                    {item.tag === 'Street View' ? 'Street View' : 'Photo'} — open on Google Maps
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-[11px] font-bold text-gold-300">
+                    <MapPin className="h-3 w-3" />
+                    Google Maps
+                  </span>
+                </span>
+              ) : (
+                <img
+                  src={item.src}
+                  alt={`${item.title} — ${item.tag}`}
+                  loading="lazy"
+                  onError={() => markBroken(i)}
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.07]"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/10 to-transparent opacity-90 transition-opacity group-hover:opacity-100" />
 
               <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-ink-950/60 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-gold-200 backdrop-blur">
@@ -78,7 +95,14 @@ export default function Gallery() {
               </span>
 
               <span className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3">
-                <span className="text-sm font-bold text-white drop-shadow">{item.title}</span>
+                <span>
+                  <span className="block text-sm font-bold text-white drop-shadow">{item.title}</span>
+                  {item.credit && (
+                    <span className="mt-0.5 block text-[10px] font-semibold text-ink-200/80">
+                      {item.credit}
+                    </span>
+                  )}
+                </span>
                 <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white/15 text-white opacity-0 backdrop-blur transition-all group-hover:opacity-100">
                   <Expand className="h-4 w-4" />
                 </span>
@@ -89,8 +113,16 @@ export default function Gallery() {
 
         <Reveal delay={0.1}>
           <p className="mt-6 text-center text-xs text-ink-300/70">
-            Real photographs of the school, Street View and community uploads are available on our
-            Google Maps listing.
+            Photos © their photographers · served from the school's{' '}
+            <a
+              href={mapLinks.place}
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-gold-300 underline-offset-2 hover:underline"
+            >
+              Google Maps listing
+            </a>{' '}
+            — 45 photos, Street View and community uploads live there.
           </p>
         </Reveal>
       </div>
@@ -112,13 +144,34 @@ export default function Gallery() {
               className="relative max-h-[85vh] w-full max-w-4xl overflow-hidden rounded-3xl border border-white/15 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={gallery[active].src}
-                alt={gallery[active].title}
-                className="max-h-[75vh] w-full object-contain bg-ink-950"
-              />
-              <figcaption className="flex items-center justify-between gap-4 border-t border-white/10 bg-ink-950 px-5 py-4">
+              {broken[active] ? (
+                <div className="flex h-[50vh] w-full flex-col items-center justify-center gap-3 bg-ink-900">
+                  <Camera className="h-10 w-10 text-gold-400" />
+                  <a
+                    href={mapLinks.place}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-primary btn-sm"
+                  >
+                    <MapPin className="h-4 w-4" />
+                    Open on Google Maps
+                  </a>
+                </div>
+              ) : (
+                <img
+                  src={gallery[active].src}
+                  alt={gallery[active].title}
+                  onError={() => markBroken(active)}
+                  className="max-h-[75vh] w-full object-contain bg-ink-950"
+                />
+              )}
+              <figcaption className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-t border-white/10 bg-ink-950 px-5 py-4">
                 <span className="text-sm font-bold text-white">{gallery[active].title}</span>
+                {gallery[active].credit && (
+                  <span className="text-[11px] font-semibold text-ink-300">
+                    {gallery[active].credit}
+                  </span>
+                )}
                 <a
                   href={mapLinks.photos}
                   target="_blank"
